@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="RegistrationForm.css">
+</head>
+<body>
+    <header>
+        <nav class="nav container">
+            <h1 class="logo">Website</h1>
+            <ul class="nav-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form action="" onsubmit="printDetails(event)">
+            <h1>Book a call</h1><br>
+            <p>Book a call slot and our representative will call you within 1hr of selected time.</p><hr>
+            <label for="name">Name:</label><br>
+            <input type="text" name="userName" id="name" value="John"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email" value="john@xyz.com"><br>
+
+            <label for="phonr">Phone:</label><br>
+            <input type="tel" maxlength="10" name="phone" id="phone" value="8915623470"><br>
+
+            <label for="callTime">Time for Call:</label><br>
+            <input type="date" name="callDate" id="callTime" min="2023-02-15">
+            
+            <input type="time" name="callTime" id="callTime"><br>
+            <input type="submit" value="GET A CALL">
+        </form>
+    </div>
+    <script src="./Registration.js"></script>
+</body>
+</html>
