@@ -11,14 +11,14 @@
 
 // getelementbyID
 
-var headerTitle = document.getElementById('header-title');
-var header = document.getElementById('main-header');
-console.log(headerTitle);
+// var headerTitle = document.getElementById('header-title');
+// var header = document.getElementById('main-header');
+// console.log(headerTitle);
 // console.log(headerTitle.textContent);
 // headerTitle.textContent = 'Hello';
 // headerTitle.innerText = 'GoodBye';
 // headerTitle.innerHTML = '<h3>Hello</h3>';
-header.style.borderBottom = 'solid 2px #000';
+// header.style.borderBottom = 'solid 2px #000';
 
 
 // getElementbyClassName
@@ -39,12 +39,46 @@ header.style.borderBottom = 'solid 2px #000';
 
 
 // getElementByTagName
-var li = document.getElementsByTagName('li');
-console.log(li);
-li[0].style.fontWeight = 'bold';
-li[0].style.color = 'green';
+// var li = document.getElementsByTagName('li');
+// console.log(li);
+// li[0].style.fontWeight = 'bold';
+// li[0].style.color = 'green';
 
-for(let i=0; i<li.length; i++){
-    li[i].style.fontWeight = 'bold';
-    li[i].style.color = 'red';
+// for(let i=0; i<li.length; i++){
+//     li[i].style.fontWeight = 'bold';
+//     li[i].style.color = 'red';
+// }
+
+// querySelector
+var header = document.querySelector('#main-header');
+header.style.borderBottom = 'solid 4px #ccc';
+
+var input = document.querySelector('input');
+input.value = 'Hello';
+
+var submit = document.querySelector('input[type="submit"]');
+submit.value = 'SEND';
+
+var item = document.querySelector('.list-group-item');
+item.style.color = 'red';
+
+var lastItem = document.querySelector('.list-group-item:last-child');
+lastItem.style.color = 'green';
+
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'blue';
+
+
+// querySelectorAll
+var titles = document.querySelectorAll('.title');
+console.log(titles);
+
+titles[0].textContent = 'Hello';
+
+var odd = document.querySelectorAll('li:nth-child(odd');
+var even = document.querySelectorAll('li:nth-child(even');
+
+for(let i=0; i<odd.length; i++){
+    odd[i].style.backgroundColor = '#f4f4f4';
+    even[i].style.backgroundColor = '#ccc';
 }
