@@ -23,14 +23,16 @@ header.style.borderBottom = 'solid 2px #000';
 
 // getElementbyClassName
 
-// var items = document.getElementsByClassName('list-group-item');
-// console.log(items);
-// console.log(items[1]);
-// items[1].style.fontWeight = 'bold';
-// items[1].style.backgroundColor = 'red';
+// var bodyTitle = document.getElementsByClassName('title');
+// console.log(bodyTitle);
+// bodyTitle[0].style.fontWeight = 'bold';
+// bodyTitle[0].style.color = 'green';
 
+var items = document.getElementsByClassName('list-group-item');
+console.log(items);
+items[1].style.backgroundColor = 'green';
 
-var bodyTitle = document.getElementsByClassName('title');
-console.log(bodyTitle);
-bodyTitle[0].style.fontWeight = 'bold';
-bodyTitle[0].style.color = 'green';
+for(let i=0; i<items.length; i++){
+    items[i].style.fontWeight = 'bold';
+    items[i].style.color = 'red';
+}
