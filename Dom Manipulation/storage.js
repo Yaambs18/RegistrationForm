@@ -14,7 +14,8 @@ if(totalUsers!=null){
     let i=1;
     while(i<=totalUsers){
         const li = document.createElement('li');
-        var userDetails = document.createTextNode(localStorage.getItem('user'+i));
+        let userObj_deserialized = JSON.parse(localStorage.getItem('user'+i))
+        var userDetails = document.createTextNode(`${userObj_deserialized.name} : ${userObj_deserialized.email}`);
         li.appendChild(userDetails);
         userList.appendChild(li);
         i++;
@@ -41,7 +42,12 @@ function onSubmit(e){
 
         // adding userdetails to local storage
         localStorage.setItem('usersCount', usersCount);
-        localStorage.setItem('user'+usersCount, `${nameInput.value} : ${emailInput.value}`);
+        let userObj = {
+            name : nameInput.value,
+            email : emailInput.value
+        }
+        let userObj_serialized = JSON.stringify(userObj);
+        localStorage.setItem('user'+usersCount, userObj_serialized);
 
         nameInput.value = '';
         emailInput.value = '';
