@@ -41,17 +41,6 @@ function onSubmit(e){
     }
     else{
         // usersCount++;
-        const li = document.createElement('li');
-        var userDetails = document.createTextNode(`${nameInput.value} : ${emailInput.value}`)
-        li.appendChild(userDetails);
-
-        // create delete btn element
-        var delBtn = document.createElement('button');
-        delBtn.className = 'delete';
-        var delText = document.createTextNode('Delete');
-        delBtn.appendChild(delText);
-        li.appendChild(delBtn);
-        userList.appendChild(li);
 
         // adding userdetails to local storage
         // localStorage.setItem('usersCount', usersCount);
@@ -61,25 +50,47 @@ function onSubmit(e){
         }
         let userObj_serialized = JSON.stringify(userObj);
         localStorage.setItem(emailInput.value, userObj_serialized);
+        showUserOnScreen(userObj);
 
         nameInput.value = '';
         emailInput.value = '';
     }
 }
 
+function showUserOnScreen(obj){
+    const li = document.createElement('li');
+    var userDetails = document.createTextNode(`${obj.name} : ${obj.email}`)
+    li.appendChild(userDetails);
 
-// delete event
-userList.addEventListener('click', deleteItem);
+    // create delete btn element
+    var delBtn = document.createElement('button');
+    delBtn.className = 'delete';
+    var delText = document.createTextNode('Delete');
+    delBtn.appendChild(delText);
 
-// Remove item
-function deleteItem(e){
-
-    if(e.target.classList.contains('delete')){
+    // create edit btn element
+    var edtBtn = document.createElement('button');
+    edtBtn.className = 'edit';
+    var edtText = document.createTextNode('Edit');
+    edtBtn.appendChild(edtText);
+    
+    // delete event
+    delBtn.onclick = () =>{
         if(confirm('Are you sure ?')){
-            var li = e.target.parentElement;
             userList.removeChild(li);
-            let userEmail = li.firstChild.textContent.split(' : ')[1];
-            localStorage.removeItem(userEmail);
+            localStorage.removeItem(obj.email);
         }
     }
+
+    // edit event
+    edtBtn.onclick = () =>{
+        userList.removeChild(li);
+        localStorage.removeItem(obj.email);
+        nameInput.value = obj.name;
+        emailInput.value = obj.email;
+    }
+    
+    li.appendChild(delBtn);
+    li.appendChild(edtBtn);
+    userList.appendChild(li);
 }

@@ -97,3 +97,12 @@
     float: right;
     padding: 5px;
   }
+
+  .edit{
+    background: #ccc;
+    border-radius: 5px;
+    border: 1px;
+    float: right;
+    padding: 5px;
+    margin-right: 5px;
+  }
