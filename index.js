@@ -176,3 +176,41 @@ function createNewStudents(username, email, password, membershippackagename){
 }
 
 createNewStudents("pyash", "yash@gmail.com" , "password123" ,"YEARLYPACKAGE");
+
+
+// currying 
+
+// let multiply = function(x, y){
+//     console.log(x*y);
+// }
+
+let mutiply = function(x){
+    return function(y){
+        console.log(x*y);
+    }
+}
+
+// let multiplyByTwo = multiply.bind(this, 2);
+// multiplyByTwo(5);
+
+let multiplyByTwo = mutiply(2);
+multiplyByTwo(5);
+
+
+// iterate object 
+
+let studentobj = {
+    'yash': 26,
+    'vaibhav': 24,
+    'rajesh' : 25,
+}
+let age =25;
+let studentObjKeys = Object.keys(studentobj);
+    for(key of studentObjKeys){
+        if(age==studentobj[key]){
+            console.log(key);
+        }
+        else{
+            console.log(-1);
+        }
+    }
